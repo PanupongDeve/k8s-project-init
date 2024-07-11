@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: timeserver-ingress
+  namespace: example-nm
+spec:
+  rules:
+  - host: timeserver.workfortest.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: timeserver
+            port:
+              number: 80

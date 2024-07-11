@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: timeserver
+  namespace: example-nm
+spec:
+  selector:
+    pod: timeserver-pod
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  type: NodePort
